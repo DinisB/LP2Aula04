@@ -4,6 +4,7 @@ using System.Collections;
 
 public class GameObject : MonoBehaviour
 {
+    int count = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,21 +20,25 @@ public class GameObject : MonoBehaviour
 
     IEnumerator Hello()
     {
-        Debug.Log("Hello");
-        yield return new WaitForSeconds(4);
+        while (true)
+        {
+            Debug.Log("Hello");
+            yield return new WaitForSeconds(4);
+        }
 
     }
 
     IEnumerator Hater()
     {
-        int count = 0;
-        Debug.Log(count);
-        count++;
-        yield return new WaitForSeconds(1f);
-        if (count == 30)
+        while (true)
         {
-            StopCoroutine(Hello());
-
+            Debug.Log(count);
+            count++;
+            yield return new WaitForSeconds(1f);
+            if (count == 30)
+            {
+                StopCoroutine(Hello());
+            }
         }
     }
 }
