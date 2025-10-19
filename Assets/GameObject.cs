@@ -10,6 +10,7 @@ public class GameObject : MonoBehaviour
     {
         StartCoroutine(Hello());
         StartCoroutine(Hater());
+        StartCoroutine(Button());
     }
 
     // Update is called once per frame
@@ -40,5 +41,18 @@ public class GameObject : MonoBehaviour
                 StopCoroutine(Hello());
             }
         }
+    }
+
+    IEnumerator Button()
+    {
+        while (true)
+        {
+            if (Input.anyKey)
+            {
+                Debug.Log("Estou a ser pressionado!");
+            }
+            yield return null;
+        }
+
     }
 }
